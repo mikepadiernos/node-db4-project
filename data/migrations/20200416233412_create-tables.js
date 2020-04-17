@@ -1,21 +1,21 @@
 
 exports.up = function(knex) {
 	return knex.schema
-		.createTable ('dish_type', tbl => {
+		.createTable('dish_type', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
-				.nutNullable()
+			tbl.string('name', 255)
+				.notNullable()
 				.unique();
-		})
+	})
 		.createTable('meal_type', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
+			tbl.string('name', 255)
 				.notNullable()
 				.unique();
 		})
 		.createTable('ingredients', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
+			tbl.string('name', 255)
 				.notNullable()
 				.unique();
 			tbl.decimal('quantity')
@@ -23,18 +23,18 @@ exports.up = function(knex) {
 		})
 		.createTable('origins', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
+			tbl.string('name', 255)
 				.notNullable()
 				.unique();
 		})
 		.createTable('steps', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
+			tbl.string('name', 255)
 				.notNullable();
 		})
 		.createTable('recipes', tbl => {
 			tbl.increments();
-			tbl.varchar('name', 255)
+			tbl.string('name', 255)
 				.notNullable();
 			tbl.integer('prepping_time')
 				.notNullable();
@@ -86,6 +86,7 @@ exports.up = function(knex) {
 				.onUpdate('CASCADE');
 			tbl.primary(['recipe_id', 'ingredient_id']);
 		})
+
 };
 
 exports.down = function(knex) {
