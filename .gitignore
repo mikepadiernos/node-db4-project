@@ -62,3 +62,8 @@ typings/
 
 # Mac Cruft
 .DS_Store
+
+.idea/
+/pnpm-lock.yaml
+/package-lock.json
+/yarn.lock
